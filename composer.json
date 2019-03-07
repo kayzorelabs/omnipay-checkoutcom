@@ -1,5 +1,5 @@
 {
-  "name": "fotografde/omnipay-checkoutcom",
+  "name": "kayzorelabs/omnipay-checkoutcom",
   "type": "library",
   "description": "Checkout.com driver for the Omnipay payment processing library",
   "keywords": [
