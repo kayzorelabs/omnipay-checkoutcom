@@ -54,4 +54,17 @@ class AbstractResponse extends \Omnipay\Common\Message\AbstractResponse
     {
         return !isset($this->data['errorCode']);
     }
+
+    /**
+     * Is live mode ?
+     *
+     * @return bool
+     */
+    public function isLiveMode()
+    {
+        return isset($this->data['liveMode']) ? $this->data['liveMode'] : false;
+    }
+
+
+
 }

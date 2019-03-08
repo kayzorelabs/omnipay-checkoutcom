@@ -18,7 +18,7 @@ namespace Omnipay\CheckoutCom\Message;
  * @link https://www.checkout.com/docs/sandbox/api
  * @method \Omnipay\CheckoutCom\Message\Response send()
  */
-abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
+abstract class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 {
     /**
      * Live or Test Endpoint URL
@@ -86,6 +86,103 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     {
         return $this->getParameter('cardToken');
     }
+
+
+
+
+    public function setChargeMode($value)
+    {
+        return $this->setParameter('chargeMode', $value);
+    }
+
+    public function getChargeMode()
+    {
+        return $this->getParameter('chargeMode');
+    }
+
+    public function setCurrency($value)
+    {
+        return $this->setParameter('currency', $value);
+    }
+
+    public function getCurrency()
+    {
+        return $this->getParameter('currency');
+    }
+
+    public function setTransactionIndicator($value)
+    {
+        return $this->setParameter('transactionIndicator', $value);
+    }
+
+    public function getTransactionIndicator()
+    {
+        return $this->getParameter('transactionIndicator');
+    }
+
+
+    public function setValue($value)
+    {
+        return $this->setParameter('value', $value);
+    }
+
+    public function getValue()
+    {
+        return $this->getParameter('value');
+    }
+
+    public function setAutoCapTime($value)
+    {
+        return $this->setParameter('autoCapTime', $value);
+    }
+
+    public function getAutoCapTime()
+    {
+        return $this->getParameter('autoCapTime');
+    }
+
+    public function setCustomerIp($value)
+    {
+        return $this->setParameter('customerIp', $value);
+    }
+
+    public function getCustomerIp()
+    {
+        return $this->getParameter('customerIp');
+    }
+
+    public function setFailUrl($value)
+    {
+        return $this->setParameter('failUrl', $value);
+    }
+
+    public function getFailUrl()
+    {
+        return $this->getParameter('failUrl');
+    }
+
+
+    public function setSuccessUrl($value)
+    {
+        return $this->setParameter('successUrl', $value);
+    }
+
+    public function getSuccessUrl()
+    {
+        return $this->getParameter('successUrl');
+    }
+
+
+    public function setTrackId($value)
+    {
+        return $this->setParameter('trackId', $value);
+    }
+
+    public function getTrackId()
+    {
+        return $this->getParameter('trackId');
+    }
+
 
     public function setEmail($value)
     {

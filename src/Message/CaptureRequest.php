@@ -1,31 +1,25 @@
 <?php
 /**
- * CheckoutCom Purchase Request
+ * Created by PhpStorm.
+ * User: dany
+ * Date: 11/03/19
+ * Time: 09:49
  */
 
 namespace Omnipay\CheckoutCom\Message;
 
-/**
- * CheckoutCom CardTokenPurchase Request
- *
- * @link https://docs.checkout.com/reference/merchant-api-reference/charges/charge-with-card-token
- */
-class CardTokenPurchaseRequest extends AbstractRequest
+
+class CaptureRequest extends  AbstractRequest
 {
+
     public function getData()
     {
         $this->validate('amount', 'currency');
 
         $data = array();
         $data['value'] = $this->getAmountInteger();
-        $data['currency'] = strtoupper($this->getCurrency());
-        $data['description'] = $this->getDescription();
-        $data['metadata'] = $this->getMetadata();
-        $data['cardToken'] = $this->getCardToken();
-        $data['email'] = $this->getEmail();
-        $data['customerName'] = $this->getCustomerName();
         $data['trackId'] = $this->getTrackId();
-
+        $data['description'] = $this->getDescription();
 
         if ($udf = $this->getUdfValues()) {
             $data['udf1'] = $udf[0];
@@ -35,6 +29,7 @@ class CardTokenPurchaseRequest extends AbstractRequest
             $data['udf5'] = isset($udf[4]) ? $udf[4] : null;
         }
 
+
         return $data;
     }
 
@@ -42,11 +37,15 @@ class CardTokenPurchaseRequest extends AbstractRequest
     {
         $httpResponse = $this->sendRequest($data);
 
-        return $this->response = new CardTokenPurchaseResponse($this, $httpResponse);
+        return $this->response = new CaptureResponse($this, $httpResponse);
     }
-
     public function getEndpoint()
     {
-        return parent::getEndpoint() . '/charges/token';
+        if($this->getTestMode()) {
+            return parent::getEndpoint() . '/charges/charge_test_' . $this->getTransactionReference() . '/capture';
+        }else{
+            return parent::getEndpoint() . '/charges/charge_' . $this->getTransactionReference() . '/capture';
+        }
     }
+
 }
