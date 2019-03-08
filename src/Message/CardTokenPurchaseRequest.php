@@ -40,7 +40,7 @@ class CardTokenPurchaseRequest extends AbstractRequest
     {
         $httpResponse = $this->sendRequest($data);
 
-        return $this->response = new CardTokenPurchaseResponse($this, $httpResponse->json());
+        return $this->response = new CardTokenPurchaseResponse($this, $httpResponse);
     }
 
     public function getEndpoint()
