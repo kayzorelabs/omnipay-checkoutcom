@@ -30,16 +30,7 @@ class PurchaseRequest extends AbstractRequest
             $data['udf5'] = isset($udf[4]) ? $udf[4] : null;
         }
 
-//        if ($this->getCardReference()) {
-//            $data['customer'] = $this->getCardReference();
-//        } elseif ($this->getTransactionReference()) {
-//            $data['card'] = $this->getTransactionReference();
-//        } elseif ($this->getCard()) {
-//            $data['card'] = $this->getCardData();
-//        } else {
-//            // one of cardReference, token, or card is required
-//            $this->validate('card');
-//        }
+
 
         return $data;
     }

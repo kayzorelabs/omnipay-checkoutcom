@@ -36,7 +36,6 @@ class CaptureRequest extends  AbstractRequest
     public function sendData($data)
     {
         $httpResponse = $this->sendRequest($data);
-
         return $this->response = new CaptureResponse($this, $httpResponse);
     }
     public function getEndpoint()

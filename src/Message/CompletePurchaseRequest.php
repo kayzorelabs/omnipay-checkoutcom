@@ -17,7 +17,7 @@ class CompletePurchaseRequest extends AbstractRequest
     {
         $httpResponse = $this->sendRequest($data);
 
-        return $this->response = new AbstractResponse($this, $httpResponse);
+        return $this->response = new CompletePurchaseResponse($this, $httpResponse);
     }
 
     public function getEndpoint()
