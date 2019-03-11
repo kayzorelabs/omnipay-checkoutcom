@@ -38,13 +38,15 @@ class FetchTransactionRequest extends  AbstractRequest
 
         return $this->response = new FetchTransactionResponse($this, $httpResponse);
     }
+
     public function getEndpoint()
     {
         if($this->getTestMode()) {
             return parent::getEndpoint() . '/charges/charge_test_' . $this->getTransactionReference() ;
-        }else{
-        return parent::getEndpoint() . '/charges/charge_' . $this->getTransactionReference();
+        }else {
+            return parent::getEndpoint() . '/charges/charge_' . $this->getTransactionReference();
+        }
     }
-    }
+
 
 }
